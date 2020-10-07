@@ -34,6 +34,7 @@ RUN npm i -g ts-protoc-gen@0.12.0 typescript@3.8.3
 RUN go get -u github.com/golang/protobuf/protoc-gen-go
 
 # Install protoc-gen-validate
-RUN go install github.com/envoyproxy/protoc-gen-validate
+RUN go get -d github.com/envoyproxy/protoc-gen-validate
+RUN cd $GOPATH/src/github.com/envoyproxy/protoc-gen-validate && make build
 
 ENTRYPOINT /bin/sh
